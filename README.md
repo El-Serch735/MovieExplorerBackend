@@ -141,6 +141,16 @@ node testConnections.js
   }
   ```
 
+### Favorites (Authenticated)
+- `GET /api/favorites` - Get user's favorite movies
+- `POST /api/favorites` - Add movie to favorites
+  ```json
+  {
+    "movie_id": 1
+  }
+  ```
+- `DELETE /api/favorites/:movieId` - Remove movie from favorites
+
 ## Authentication
 
 All protected endpoints require a JWT token in the Authorization header:
@@ -160,17 +170,20 @@ MovieExplorerBackend/
 │   ├── usersController.js      # User auth logic
 │   ├── categoriesController.js # Category operations
 │   ├── moviesController.js     # Movie operations
-│   └── reviewsController.js    # Review operations
+│   ├── reviewsController.js    # Review operations
+│   └── favoritesController.js  # Favorites operations
 ├── models/
 │   ├── userModel.js       # User database functions
 │   ├── categoryModel.js   # Category database functions
 │   ├── movieModel.js      # Movie database functions
-│   └── reviewModel.js     # Review database functions
+│   ├── reviewModel.js     # Review database functions
+│   └── favoriteModel.js   # Favorites database functions
 ├── routes/
 │   ├── usersRoutes.js     # User endpoints
 │   ├── categoriesRoutes.js # Category endpoints
 │   ├── moviesRoutes.js    # Movie endpoints
-│   └── reviewsRoutes.js   # Review endpoints
+│   ├── reviewsRoutes.js   # Review endpoints
+│   └── favoritesRoutes.js # Favorites endpoints
 ├── middleware/
 │   └── authMiddleware.js  # JWT verification middleware
 ├── utils/
